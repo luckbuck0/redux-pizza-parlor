@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: aquamarine;
   height: 70px;
   padding: 20px;
   color: white;
@@ -12,4 +12,17 @@
 
 .App-title {
   font-size: 2em;
+}
+
+.cart{
+  width: 20px;
+  height: 20px;
+  border: solid;
+  margin-left: 500px;
+  margin-right: 5px ;
+}
+
+.total{
+  margin-top: -20px;
+  padding-left: 10px;
 }
