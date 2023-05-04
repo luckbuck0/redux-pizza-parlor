@@ -29,6 +29,48 @@
 
 .text{
   text-align: left;
-  padding-left: 20px;
+  padding-left: 40px;
   
+}
+
+.pizzaPics{
+  height: 150px;
+  width: 150px;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.pizzaContainer{
+  
+  display: inline-flex;
+  flex-wrap: wrap;
+  
+}
+
+.individualPizza{
+  display: inline-block;
+  width: 200px;
+  height: 450px;
+  
+}
+
+.outerContainer{
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.buttons{
+  width:200px
+}
+
+.description{
+ 
+  font-size: 10px;
+
+}
+
+.nextButton{
+  display: flexbox;
+  margin-left: 70%;
+  width: 100px;
 }

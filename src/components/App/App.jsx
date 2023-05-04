@@ -2,13 +2,35 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import Order from '../Order/Order';
-
+import { useEffect } from 'react';
 //---------------------Router---------------------------------
 import { HashRouter as Router, Route, Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
+
+useEffect(()=>{
+  getPizzas();
+},[])
+
 const total=useSelector((store)=>store.total)
+
+const dispatch=useDispatch()
+
+const getPizzas=()=>{axios({
+  method: 'GET',
+  url: '/api/pizza'
+}).then((response)=>{
+  const pizzas= response.data 
+
+  dispatch({
+    type: 'SET_PIZZAS',
+    payload: pizzas
+  })
+}).catch((error)=>{
+  console.log('cmon guy get it together--->',error);
+})
+}
   return (
     <div className='App'>
 

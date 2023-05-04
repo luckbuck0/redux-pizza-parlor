@@ -15,6 +15,10 @@ import logger from 'redux-logger';
 //---------------------REDUCERS---------------------------------
 
 const pizzas= (state=[],action) => {
+    if (action.type === 'SET_PIZZAS'){
+        const thePizza= action.payload;
+        return thePizza;
+    }
     return state
 }
 
