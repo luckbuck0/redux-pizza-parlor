@@ -22,8 +22,7 @@ const total=useSelector((store)=>store.total)
 
       <Router exact path="/">
         <Order />
-           <img  src='images/pizza_photo.png' />
-          <p>Pizza is great.</p>
+          
       </Router>
     </div>
   );

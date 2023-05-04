@@ -5,7 +5,8 @@ function Order(){
 
     return (
         <div>
-            Hi
+            {/* <img  src='images/pizza_photo.png' /> */}
+          <p className="text">Step 1:Select Your Pizza</p>
         </div>
     )
 }
