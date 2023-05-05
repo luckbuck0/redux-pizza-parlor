@@ -14,7 +14,7 @@ function Order(){
     return (
         <div className="outerContainer">
         <p className="text">Step 1:Select Your Pizza</p>
-
+    <div>
         {
                 pizzas.map((pizza)=>{
                     return (
@@ -30,6 +30,7 @@ function Order(){
                     )
                 })
             }
+            </div>
             {/* <OrderContainer /> */}
            <button className="nextButton">NEXT</button>
         </div>

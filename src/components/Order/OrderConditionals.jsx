@@ -7,6 +7,7 @@ function Conditionals(props){
     let pizzas= useSelector((store)=> store.pizzas)
     const [isclicked,setIsClicked]=useState(false)
     const dispatch=useDispatch()
+    const total=useSelector((store)=> store.total)
 
 const orderPizzaId=useSelector((store)=>store.orderedPizzaId)
 
@@ -21,13 +22,29 @@ dispatch({
     type:'ADD_ORDER',
     payload:pizza.id
 })
-    
+
+dispatch({
+    type:'ADD_PRICE',
+    payload:pizza.price
+})
+console.log('pizza.price--->',pizza.price);
 }
 
 const unClick= ()=>{
     console.log('in add pizza');
     setIsClicked(false)
     clicked()
+
+    dispatch({
+        type:'REMOVE_ORDER',
+        payload:pizza.id
+    })
+
+    dispatch({
+        type:'REMOVE_PRICE',
+        payload:pizza.price
+    })
+   
 }
 
 

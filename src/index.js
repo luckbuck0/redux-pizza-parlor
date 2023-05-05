@@ -33,13 +33,42 @@ const orderedPizzaId= (state=[],action) =>{
 
         return copyOfId;
     }
-    else if (action.type ==='REMOVE_ORDER'){
-        for (let id of copyOfId)
+    if (action.type ==='REMOVE_ORDER'){
+        for (let id of state){
+            if (id === action.payload){
+                const idIndex=state.indexOf(id)
+                state.splice(idIndex,1)
+            }
+        }
     }
     return state
 }
 
-const total=(state=0,action)=>{
+const total=(state=[],action)=>{
+    
+    if (action.type==='ADD_PRICE'){
+        
+        const newPrice=action.payload;
+        const copyOfPrice=[...state]
+        copyOfPrice.push(newPrice)
+        console.log('this---->',copyOfPrice); 
+        
+        return copyOfPrice
+    } 
+      if (action.type ==='REMOVE_PRICE'){
+        for (let id of state){
+            console.log('this is id',action.payload);
+            if (id === action.payload){
+                const newPrice=action.payload;
+        const copyOfPrice=[...state]
+        
+                const idIndex=copyOfPrice.indexOf(id)
+                copyOfPrice.splice(idIndex,1)
+                return copyOfPrice
+            }
+        }
+    }
+  
     return state
 }
 

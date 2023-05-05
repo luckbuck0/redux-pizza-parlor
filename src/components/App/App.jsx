@@ -14,9 +14,12 @@ useEffect(()=>{
 },[])
 
 const total=useSelector((store)=>store.total)
-
+console.log('total--->',total);
 const dispatch=useDispatch()
-
+let sum=0
+for (let each of total){
+  sum=Number(each)+sum
+}
 const getPizzas=()=>{axios({
   method: 'GET',
   url: '/api/pizza'
@@ -38,7 +41,7 @@ const getPizzas=()=>{axios({
 
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza </h1>
-        <div className='total'><img className='cart' src="images/cart.png" alt="" /> {total}</div> 
+        <div className='total'><img className='cart' src="images/cart.png" alt="" /> {sum}</div> 
       </header>
      
 
