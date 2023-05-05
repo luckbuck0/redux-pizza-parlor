@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import Order from '../Order/Order';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
 import { useEffect } from 'react';
 //---------------------Router---------------------------------
 import { HashRouter as Router, Route, Link } from 'react-router-dom/cjs/react-router-dom.min';
@@ -47,6 +48,11 @@ const getPizzas=()=>{axios({
 
       <Router exact path="/">
         <Order />
+          
+      </Router>
+
+      <Router exact path="/customerInfo">
+        <CustomerInfo />
           
       </Router>
     </div>

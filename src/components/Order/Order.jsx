@@ -32,7 +32,7 @@ function Order(){
             }
             </div>
             {/* <OrderContainer /> */}
-           <button className="nextButton">NEXT</button>
+           <button onClick={() => { history.push('/customerInfo') }} className="nextButton">NEXT</button>
         </div>
     )
 }
