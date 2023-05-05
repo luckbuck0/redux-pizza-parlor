@@ -22,6 +22,23 @@ const pizzas= (state=[],action) => {
     return state
 }
 
+const orderedPizzaId= (state=[],action) =>{
+    if (action.type ==='ADD_ORDER'){
+        
+        const newOrderId= action.payload
+
+        const  copyOfId= [...state];
+
+        copyOfId.push(newOrderId)
+
+        return copyOfId;
+    }
+    else if (action.type ==='REMOVE_ORDER'){
+        for (let id of copyOfId)
+    }
+    return state
+}
+
 const total=(state=0,action)=>{
     return state
 }
@@ -32,7 +49,8 @@ const total=(state=0,action)=>{
 const store = createStore(
     combineReducers({
         pizzas,
-        total
+        total,
+        orderedPizzaId
     }), 
     applyMiddleware(
         logger

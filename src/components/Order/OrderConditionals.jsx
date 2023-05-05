@@ -1,59 +1,48 @@
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
 
-function OrderContainer(){
-    
-function addPizza(){
-    console.log('in add pizza');
-}
+function Conditionals(props){
 
-function clicked(){
-
+    let pizza= props.pizza
     let pizzas= useSelector((store)=> store.pizzas)
     const [isclicked,setIsClicked]=useState(false)
+    const dispatch=useDispatch()
+
+const orderPizzaId=useSelector((store)=>store.orderedPizzaId)
+
+console.log('Orderpizza id----->',orderPizzaId)
+
+const addPizza= ()=>{
+    console.log('in add pizza');
+    setIsClicked(true)
+    clicked()
+    console.log('pizza id----->',pizza.id);
+dispatch({
+    type:'ADD_ORDER',
+    payload:pizza.id
+})
+    
+}
+
+const unClick= ()=>{
+    console.log('in add pizza');
+    setIsClicked(false)
+    clicked()
+}
+
+
+function clicked(){
 console.log('In the order page',pizzas);
     if(isclicked===false){
         return (
-            <div className="pizzaContainer">
-            {/* <img  src='images/pizza_photo.png' /> */}
-          
-
-            {
-                pizzas.map((pizza)=>{
-                    return (
-                        
-                            <div className="individualPizza">
-                            <img className="pizzaPics" src={pizza.image_path} alt="" />
-                            <p>{pizza.name}</p> 
-                            <p>{pizza.description}</p>
-                            <button onClick={addPizza} className="buttons">ADD</button>
-                            </div>
-                    )
-                })
-            }
-          </div>
+            <button onClick={addPizza} className="buttons">ADD</button>
         )
     }
-    else {
-        <div className="pizzaContainer">
-            {/* <img  src='images/pizza_photo.png' /> */}
-          
-
-            {
-                pizzas.map((pizza)=>{
-                    return (
-                        
-                            <div className="individualPizza">
-                            <img className="pizzaPics" src={pizza.image_path} alt="" />
-                            <p>{pizza.name}</p> 
-                            <p>{pizza.description}</p>
-                            <button className="buttons">Remove</button>
-                            </div>
-                    )
-                })
-            }
-          </div>
-          
+    else if (isclicked){
+        return(
+             <button onClick={unClick} className="buttons">Remove</button>
+            
+        )
     }
     
 }
@@ -65,4 +54,4 @@ return(
    
   )
 }
-export default OrderContainer
+export default Conditionals;
